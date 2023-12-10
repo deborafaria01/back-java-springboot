@@ -2,6 +2,7 @@ package br.gov.sp.fatec.springboot3app.entity;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.time.LocalDate; 
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,6 +33,9 @@ public class Usuario {
 
     @ManyToMany(mappedBy = "usuarios")
     private Set<Autorizacao> autorizacoes;
+
+    @Column(name = "data_demissao")
+    private LocalDate dataDemissao;
 
     public Usuario(String nome, String senha) {
         this();
@@ -82,6 +86,14 @@ public class Usuario {
 
     public void setAutorizacoes(Set<Autorizacao> autorizacoes) {
         this.autorizacoes = autorizacoes;
+    }
+
+    public LocalDate getDataDemissao() {
+        return dataDemissao;
+    }
+
+    public void setDataDemissao(LocalDate dataDemissao) {
+        this.dataDemissao = dataDemissao;
     }
 
 }

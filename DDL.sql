@@ -14,6 +14,8 @@ create table usr_usuario (
   usr_id bigint unsigned not null auto_increment,
   usr_nome varchar(20) not null,
   usr_senha varchar(150) not null,
+
+
   primary key (usr_id),
   unique key uni_usuario_nome (usr_nome)
 );
@@ -48,7 +50,8 @@ create table ent_entrega (
   ent_data_hora_cadastro datetime not null,
   ent_data_hora_limite datetime not null,
   ent_peso int not null,
-  ent_observacoes varchar(200)
+  ent_observacoes varchar(200),
+  ent_data_hora_limite_original datetime null 
 );
 
 create table voc_vocabulo (
@@ -86,9 +89,9 @@ insert into uau_usuario_autorizacao (usr_id, aut_id)
   values (1, 1);
 insert into ant_anotacao(ant_texto, ant_data_hora, ant_usr_id)
   values ('Meu novo projeto', '2023-08-01 19:10', 1);
-insert into ent_entrega (ent_descricao, ent_data_hora_cadastro, ent_data_hora_limite, ent_peso)
-  values ('Teste 1', current_timestamp(), '2023-10-5 23:59:59', 3),
-         ('Teste 2', current_timestamp(), '2023-10-12 23:59:59', 3);
+insert into ent_entrega (ent_descricao, ent_data_hora_cadastro, ent_data_hora_limite, ent_peso, ent_data_hora_limite_original)
+  values ('Teste 1', current_timestamp(), '2023-10-5 23:59:59', 3, '2023-10-6 23:59:59'),
+         ('Teste 2', current_timestamp(), '2023-10-12 23:59:59', 3, '2023-10-20 23:59:59');
 insert into voc_vocabulo (voc_termo, voc_significado, voc_versao, voc_data_hora_cadastro)
   values ('tupla', 'linha de uma tabela', 1, '2023-10-01 10:00:06'),
   ('tupla', 'conjunto de atributos relacionados', 2, current_timestamp());
@@ -98,3 +101,5 @@ insert into emp_empregado (emp_nome_completo, emp_ctps, emp_data_hora_cadastro, 
 insert into tmp_temperatura (tmp_data_hora, tmp_medida, tmp_umidade, tmp_particulas)
   values ('2023-10-24 10:00', 25.4, null, 31.3),
          ('2023-10-24 11:00', 26.1, 43.2, null);
+
+

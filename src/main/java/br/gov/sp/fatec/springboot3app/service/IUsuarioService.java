@@ -20,6 +20,4 @@ public interface IUsuarioService {
 
     public Anotacao novaAnotacao(Anotacao anotacao);
 
-    public void demitirUsuario(Long id);
-
 }

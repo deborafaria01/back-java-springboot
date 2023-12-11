@@ -33,6 +33,9 @@ public class Entrega {
     @Column(name = "ent_observacoes")
     private String observacoes;
 
+    @Column(name = "ent_data_hora_limite_original")
+    private LocalDateTime dataHoraLimiteOriginal;
+
     public Long getId() {
         return id;
     }
@@ -64,6 +67,14 @@ public class Entrega {
     public void setDataHoraLimite(LocalDateTime dataHoraLimite) {
         this.dataHoraLimite = dataHoraLimite;
     }
+
+    public LocalDateTime getDataHoraLimiteOriginal() {
+        return dataHoraLimiteOriginal;
+    }
+    
+    public void setDataHoraLimiteOriginal(LocalDateTime dataHoraLimiteOriginal) {
+        this.dataHoraLimiteOriginal = dataHoraLimiteOriginal;
+    }    
 
     public Integer getPeso() {
         return peso;

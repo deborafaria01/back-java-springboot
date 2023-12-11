@@ -1,6 +1,5 @@
 package br.gov.sp.fatec.springboot3app.service;
 
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -93,17 +92,6 @@ public class UsuarioService implements IUsuarioService {
         Usuario usuario = buscarUsuarioPorId(anotacao.getUsuario().getId());
         anotacao.setUsuario(usuario);
         return anotRepo.save(anotacao);
-    }
-
-    @Transactional
-    public Usuario demitirUsuario(Long id) {
-        try {
-            Usuario usuario = buscarUsuarioPorId(id);
-            usuario.setDataDemissao(LocalDate.now());
-            return usuarioRepo.save(usuario);
-        } catch (ResponseStatusException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getReason(), e);
-        }
     }
 
 
